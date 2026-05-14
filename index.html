@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aquaflex – כביסה בכל מקום, בלי תשתית מים</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 0;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-svg {
+            height: 150px;
+            width: auto;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0066cc 0%, #00a86b 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: right;
+            margin-top: 0;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            background: white;
+            color: #0066cc;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #f0f0f0;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Sections */
+        section {
+            padding: 60px 20px;
+            background: white;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        section h2 {
+            text-align: right;
+            font-size: 2em;
+            margin-bottom: 40px;
+            color: #0066cc;
+        }
+
+        /* Problem Section */
+        .problems {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .problem-card {
+            background: #fff3cd;
+            padding: 25px;
+            border-radius: 8px;
+            border-right: 5px solid #ff6b6b;
+            text-align: right;
+        }
+
+        .problem-card h3 {
+            color: #d63031;
+            margin-bottom: 15px;
+        }
+
+        /* Benefits Grid */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .benefit-card {
+            background: #e8f5e9;
+            padding: 25px;
+            border-radius: 8px;
+            border-right: 5px solid #00a86b;
+            text-align: right;
+        }
+
+        .benefit-card h3 {
+            color: #00a86b;
+            margin-bottom: 15px;
+        }
+
+        /* Perks Section */
+        .perks {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .perk-card {
+            background: linear-gradient(135deg, #e3f2fd 0%, #f0f4c3 100%);
+            padding: 25px;
+            border-radius: 8px;
+            text-align: right;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .perk-card h3 {
+            color: #0066cc;
+            margin-bottom: 10px;
+        }
+
+        /* Signup Form */
+        .signup-form {
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+            padding: 40px;
+            border-radius: 8px;
+            max-width: 600px;
+            margin: 30px auto 0;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: right;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1em;
+            font-family: inherit;
+            direction: rtl;
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #0066cc;
+            box-shadow: 0 0 5px rgba(0, 102, 204, 0.3);
+        }
+
+        .form-submit {
+            background: #0066cc;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            width: 100%;
+            transition: background 0.3s;
+        }
+
+        .form-submit:hover {
+            background: #004a99;
+        }
+
+        /* FAQ Section */
+        .faq-list {
+            max-width: 800px;
+            margin: 30px auto 0;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 20px;
+            text-align: right;
+        }
+
+        .faq-item h3 {
+            color: #0066cc;
+            margin-bottom: 10px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .faq-item h3::before {
+            content: "▼ ";
+            margin-left: 10px;
+            transition: transform 0.3s;
+        }
+
+        .faq-item.collapsed h3::before {
+            transform: rotate(-90deg);
+        }
+
+        .faq-answer {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .faq-item.collapsed .faq-answer {
+            display: none;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .hero p {
+                font-size: 1em;
+            }
+
+            section h2 {
+                font-size: 1.5em;
+            }
+
+            .problems,
+            .benefits-grid,
+            .perks {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 540px) {
+            .hero h1 {
+                font-size: 1.5em;
+            }
+
+            .hero p {
+                font-size: 0.9em;
+            }
+
+            section {
+                padding: 40px 15px;
+            }
+
+            section h2 {
+                font-size: 1.3em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <svg class="logo-svg" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Water Droplet -->
+                        <defs>
+                            <linearGradient id="dropGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#1e90ff;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#003d99;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+
+                        <!-- Main water drop shape -->
+                        <path d="M 240 180 Q 200 220 200 280 Q 200 380 320 480 Q 440 380 440 280 Q 440 220 400 180 Z" fill="url(#dropGradient)" stroke="#0066cc" stroke-width="3"/>
+
+                        <!-- Water ripples -->
+                        <circle cx="180" cy="160" r="25" fill="none" stroke="#1e90ff" stroke-width="2" opacity="0.6"/>
+                        <circle cx="180" cy="160" r="35" fill="none" stroke="#1e90ff" stroke-width="1.5" opacity="0.3"/>
+                        <circle cx="460" cy="180" r="20" fill="none" stroke="#1e90ff" stroke-width="2" opacity="0.6"/>
+                        <circle cx="460" cy="180" r="30" fill="none" stroke="#1e90ff" stroke-width="1.5" opacity="0.3"/>
+
+                        <!-- Inner circle for world map -->
+                        <circle cx="320" cy="280" r="90" fill="#0066cc" stroke="#003d99" stroke-width="2"/>
+
+                        <!-- World map simplified -->
+                        <g fill="#ffffff" opacity="0.9">
+                            <!-- Continents simplified -->
+                            <ellipse cx="300" cy="250" rx="25" ry="35"/>
+                            <ellipse cx="340" cy="260" rx="20" ry="30"/>
+                            <ellipse cx="320" cy="310" rx="35" ry="25"/>
+                        </g>
+
+                        <!-- Light reflection on drop -->
+                        <ellipse cx="270" cy="220" rx="20" ry="40" fill="white" opacity="0.4"/>
+
+                        <!-- Text: aquaflex -->
+                        <text x="550" y="350" font-size="120" font-weight="bold" fill="#0066cc" font-family="Arial, sans-serif">aqua</text>
+                        <text x="1000" y="350" font-size="120" font-weight="bold" fill="#6b9d4f" font-family="Arial, sans-serif">flex</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>כביסה בכל מקום, בלי תשתית מים</h1>
+                <p>פתרון כביסה חדשני שלא דורש חיבור למים או ביוב</p>
+                <button class="cta-button" onclick="document.getElementById('signup').scrollIntoView({behavior: 'smooth'})">קחו אותי לרשימה</button>
+
+                <!-- Hero SVG - Water Droplet with Earth -->
+                <svg class="hero-svg" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" style="max-width: 300px; margin: 40px auto; display: block;">
+                    <defs>
+                        <linearGradient id="dropGradientHero" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#1e90ff;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#003d99;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M 300 100 Q 250 160 250 250 Q 250 380 300 450 Q 350 380 350 250 Q 350 160 300 100 Z" fill="url(#dropGradientHero)" stroke="white" stroke-width="3"/>
+                    <circle cx="220" cy="70" r="35" fill="none" stroke="white" stroke-width="2" opacity="0.6"/>
+                    <circle cx="220" cy="70" r="50" fill="none" stroke="white" stroke-width="1.5" opacity="0.3"/>
+                    <circle cx="380" cy="90" r="30" fill="none" stroke="white" stroke-width="2" opacity="0.6"/>
+                    <circle cx="380" cy="90" r="45" fill="none" stroke="white" stroke-width="1.5" opacity="0.3"/>
+                    <circle cx="300" cy="260" r="70" fill="#0066cc" stroke="white" stroke-width="2"/>
+                    <g fill="white" opacity="0.9">
+                        <ellipse cx="285" cy="235" rx="20" ry="28"/>
+                        <ellipse cx="320" cy="245" rx="16" ry="24"/>
+                        <ellipse cx="300" cy="290" rx="28" ry="20"/>
+                    </g>
+                    <ellipse cx="285" cy="150" rx="16" ry="32" fill="white" opacity="0.4"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <!-- Problem Section -->
+    <section>
+        <div class="container">
+            <h2>הבעיה</h2>
+            <div class="problems">
+                <div class="problem-card">
+                    <h3>מכונות כביסה צורכות מים</h3>
+                    <p>מכונות כביסה רגילות דורשות חיבור לתשתית מים מורכבת ויקרה</p>
+                </div>
+                <div class="problem-card">
+                    <h3>בעיות כלכליות</h3>
+                    <p>חיבור למים וביוב דורש השקעה גדולה, בעיקר במקומות ללא תשתית</p>
+                </div>
+                <div class="problem-card">
+                    <h3>חוסר גמישות</h3>
+                    <p>לא ניתן להעביר מכונות כביסה בעלות תשתית ממקום למקום</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section>
+        <div class="container">
+            <h2>איך זה עובד</h2>
+            <p style="text-align: right; margin-bottom: 20px;">Aquaflex היא מכונת כביסה נייד שלא צריכה חיבור קבע למים או ביוב. פשוט מלאו מיכל מים, כביסו בביתכם, ותרוקנו את המים. לא צריך קבלן, לא צריך חיבור קבע!</p>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section>
+        <div class="container">
+            <h2>היתרונות של Aquaflex</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h3>🔧 קל להתקנה</h3>
+                    <p>בלי צורך בקבלן או עבודות חשמל מסובכות</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>💰 חיסכון כלכלי</h3>
+                    <p>אין צורך בהשקעה בתשתית מימון יקרה</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>🏠 ניידות</h3>
+                    <p>ניתן להעביר את המכונה בין חדרים או בתים בקלות</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>🌍 בר קיימא</h3>
+                    <p>שימוש חכם במים, פחות בזבוז</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>⏱️ זמן כביסה קצר</h3>
+                    <p>כביסה מהירה וביעילה</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>🔊 שקטה</h3>
+                    <p>פחות רעש מאשר מכונות כביסה רגילות</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Built For Section -->
+    <section>
+        <div class="container">
+            <h2>עבור מי זה מעבורות</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h3>דירות קטנות</h3>
+                    <p>למי שאין מקום לחדר כביסה גדול</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>מגורים זמניים</h3>
+                    <p>אפילו בדירה שכורה - לא צריך שינויים בעמדות</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Tiny Houses</h3>
+                    <p>בלי לוותר על המקום או המים</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>קרוואנים ובתי נייד</h3>
+                    <p>כביסה בדרך, בקלות מוחלטת</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>מחנות עבודה</h3>
+                    <p>כביסה לכל הצוות בקלות וביעילות</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>מקומות גבוהים</h3>
+                    <p>בנה בקומה 10 בלי צורך בעבודות שיפוץ</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Perks Section -->
+    <section>
+        <div class="container">
+            <h2>סיבות נוספות לאהוב Aquaflex</h2>
+            <div class="perks">
+                <div class="perk-card">
+                    <h3>פתרונות ניידים</h3>
+                    <p>Aquaflex לעומתן מתחברת לכל מכונת כביסה רגילה שכבר יש לכם — בלי להחליף ובלי להתפשר.</p>
+                </div>
+                <div class="perk-card">
+                    <h3>Tiny Houses</h3>
+                    <p>בלי לוותר על המקום או המים</p>
+                </div>
+                <div class="perk-card">
+                    <h3>טכנולוגיה ירוקה</h3>
+                    <p>פחות צריכת מים, פחות שימוש באנרגיה</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Signup Section -->
+    <section id="signup">
+        <div class="container">
+            <h2>הצטרפו לרשימת ההמתנה</h2>
+            <form class="signup-form" id="signupForm">
+                <div class="form-group">
+                    <label for="name">שם מלא</label>
+                    <input type="text" id="name" name="FNAME" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">דוא"ל</label>
+                    <input type="email" id="email" name="EMAIL" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="usage">סוג השימוש</label>
+                    <select id="usage" name="USAGETYPE" required>
+                        <option value="">בחרו אפשרות</option>
+                        <option value="apartment">דירה</option>
+                        <option value="house">בית פרטי</option>
+                        <option value="rental">דירה שכורה</option>
+                        <option value="tiny_house">Tiny House</option>
+                        <option value="caravan">קרוואן</option>
+                        <option value="camp">מחנה עבודה</option>
+                        <option value="commercial">שימוש מסחרי</option>
+                        <option value="other">אחר — כתבו בעצמכם</option>
+                    </select>
+                </div>
+
+                <div class="form-group" id="otherText" style="display: none;">
+                    <label for="otherInput">אנא תאר את סוג השימוש שלך</label>
+                    <textarea id="otherInput" name="OTHER_TEXT" placeholder="הקלד את סוג השימוש שלך..."></textarea>
+                </div>
+
+                <button type="submit" class="form-submit">קחו אותי לרשימה</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section>
+        <div class="container">
+            <h2>שאלות נפוצות</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h3>האם זה עובד עם כל מכונת כביסה?</h3>
+                    <p class="faq-answer">כן! Aquaflex עובדת עם כל מכונת כביסה סטנדרטית</p>
+                </div>
+                <div class="faq-item">
+                    <h3>כמה מים צריך?</h3>
+                    <p class="faq-answer">בערך 100 ליטר לכביסה אחת, תלוי בסוג הכביסה</p>
+                </div>
+                <div class="faq-item">
+                    <h3>האם זה דורש חשמל?</h3>
+                    <p class="faq-answer">כן, זה דורש חשמל כמו כל מכונת כביסה</p>
+                </div>
+                <div class="faq-item">
+                    <h3>מה עם טימון המים?</h3>
+                    <p class="faq-answer">צינור דקיק נחמד שנכנס לכל חור מים סטנדרטי</p>
+                </div>
+                <div class="faq-item">
+                    <h3>איך משחררים את המים?</h3>
+                    <p class="faq-answer">שפך למקום משותף כמו חלון או כיור - זה מאוד פשוט</p>
+                </div>
+                <div class="faq-item">
+                    <h3>מה המחיר?</h3>
+                    <p class="faq-answer">מחיר עדיין לא קבוע - בואו להצטרף לרשימה לעדכונים</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <svg class="logo-svg" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg" style="height: 100px; fill: white; margin-bottom: 20px;">
+            <defs>
+                <linearGradient id="dropGradientFooter" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#1e90ff;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#003d99;stop-opacity:1" />
+                </linearGradient>
+            </defs>
+            <path d="M 240 180 Q 200 220 200 280 Q 200 380 320 480 Q 440 380 440 280 Q 440 220 400 180 Z" fill="url(#dropGradientFooter)" stroke="white" stroke-width="3"/>
+            <circle cx="180" cy="160" r="25" fill="none" stroke="white" stroke-width="2" opacity="0.6"/>
+            <circle cx="180" cy="160" r="35" fill="none" stroke="white" stroke-width="1.5" opacity="0.3"/>
+            <circle cx="460" cy="180" r="20" fill="none" stroke="white" stroke-width="2" opacity="0.6"/>
+            <circle cx="460" cy="180" r="30" fill="none" stroke="white" stroke-width="1.5" opacity="0.3"/>
+            <circle cx="320" cy="280" r="90" fill="#0066cc" stroke="white" stroke-width="2"/>
+            <g fill="white" opacity="0.9">
+                <ellipse cx="300" cy="250" rx="25" ry="35"/>
+                <ellipse cx="340" cy="260" rx="20" ry="30"/>
+                <ellipse cx="320" cy="310" rx="35" ry="25"/>
+            </g>
+            <ellipse cx="270" cy="220" rx="20" ry="40" fill="white" opacity="0.4"/>
+            <text x="550" y="350" font-size="120" font-weight="bold" fill="white" font-family="Arial, sans-serif">aqua</text>
+            <text x="1000" y="350" font-size="120" font-weight="bold" fill="#90ee90" font-family="Arial, sans-serif">flex</text>
+        </svg>
+        <p>&copy; 2026 Aquaflex - כל הזכויות שמורות</p>
+    </footer>
+
+    <script>
+        // Mailchimp Form Submission
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const fname = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const usageType = document.getElementById('usage').value;
+            const otherText = document.getElementById('otherInput').value;
+
+            // Build Mailchimp URL
+            const mailchimpUrl = 'https://aquaflex.us2.list-manage.com/subscribe/post';
+            const params = {
+                u: '1595d7541d',
+                id: 'b5c1a9c3b0',
+                FNAME: fname,
+                EMAIL: email,
+                USAGETYPE: usageType,
+                OTHER_TEXT: otherText
+            };
+
+            // Create form data
+            const formData = new FormData();
+            for (let key in params) {
+                formData.append(key, params[key]);
+            }
+
+            // Submit to Mailchimp
+            fetch(mailchimpUrl, {
+                method: 'POST',
+                body: formData,
+                mode: 'no-cors'
+            }).then(() => {
+                alert('תודה על ההרשמה! בדוק את דוא"לך לאישור');
+                document.getElementById('signupForm').reset();
+                document.getElementById('otherText').style.display = 'none';
+            }).catch(err => {
+                console.log('Form submitted (Mailchimp response expected to be opaque)');
+                alert('תודה על ההרשמה! בדוק את דוא"לך לאישור');
+                document.getElementById('signupForm').reset();
+            });
+        });
+
+        // Show/Hide "Other" field
+        document.getElementById('usage').addEventListener('change', function() {
+            const otherField = document.getElementById('otherText');
+            if (this.value === 'other') {
+                otherField.style.display = 'block';
+                document.getElementById('otherInput').required = true;
+            } else {
+                otherField.style.display = 'none';
+                document.getElementById('otherInput').required = false;
+            }
+        });
+
+        // FAQ Toggle
+        document.querySelectorAll('.faq-item h3').forEach(item => {
+            item.addEventListener('click', function() {
+                this.parentElement.classList.toggle('collapsed');
+            });
+        });
+    </script>
+</body>
+</html>
